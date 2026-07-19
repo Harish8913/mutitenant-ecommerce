@@ -236,8 +236,8 @@ export type UserWhereInput = {
   email?: Prisma.StringFilter<"User"> | string
   passwordHash?: Prisma.StringFilter<"User"> | string
   roleId?: Prisma.IntFilter<"User"> | number
-  role?: Prisma.XOR<Prisma.RoleScalarRelationFilter, Prisma.RoleWhereInput>
   seller?: Prisma.XOR<Prisma.SellerNullableScalarRelationFilter, Prisma.SellerWhereInput> | null
+  role?: Prisma.XOR<Prisma.RoleScalarRelationFilter, Prisma.RoleWhereInput>
 }
 
 export type UserOrderByWithRelationInput = {
@@ -248,8 +248,8 @@ export type UserOrderByWithRelationInput = {
   email?: Prisma.SortOrder
   passwordHash?: Prisma.SortOrder
   roleId?: Prisma.SortOrder
-  role?: Prisma.RoleOrderByWithRelationInput
   seller?: Prisma.SellerOrderByWithRelationInput
+  role?: Prisma.RoleOrderByWithRelationInput
 }
 
 export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -263,8 +263,8 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   lastName?: Prisma.StringNullableFilter<"User"> | string | null
   passwordHash?: Prisma.StringFilter<"User"> | string
   roleId?: Prisma.IntFilter<"User"> | number
-  role?: Prisma.XOR<Prisma.RoleScalarRelationFilter, Prisma.RoleWhereInput>
   seller?: Prisma.XOR<Prisma.SellerNullableScalarRelationFilter, Prisma.SellerWhereInput> | null
+  role?: Prisma.XOR<Prisma.RoleScalarRelationFilter, Prisma.RoleWhereInput>
 }, "id" | "userId" | "email">
 
 export type UserOrderByWithAggregationInput = {
@@ -302,8 +302,8 @@ export type UserCreateInput = {
   lastName?: string | null
   email: string
   passwordHash: string
-  role: Prisma.RoleCreateNestedOneWithoutUserInput
   seller?: Prisma.SellerCreateNestedOneWithoutUserInput
+  role: Prisma.RoleCreateNestedOneWithoutUserInput
 }
 
 export type UserUncheckedCreateInput = {
@@ -324,8 +324,8 @@ export type UserUpdateInput = {
   lastName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email?: Prisma.StringFieldUpdateOperationsInput | string
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
-  role?: Prisma.RoleUpdateOneRequiredWithoutUserNestedInput
   seller?: Prisma.SellerUpdateOneWithoutUserNestedInput
+  role?: Prisma.RoleUpdateOneRequiredWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateInput = {
@@ -666,8 +666,8 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   email?: boolean
   passwordHash?: boolean
   roleId?: boolean
-  role?: boolean | Prisma.RoleDefaultArgs<ExtArgs>
   seller?: boolean | Prisma.User$sellerArgs<ExtArgs>
+  role?: boolean | Prisma.RoleDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["user"]>
 
 export type UserSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -704,8 +704,8 @@ export type UserSelectScalar = {
 
 export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "firstName" | "lastName" | "email" | "passwordHash" | "roleId", ExtArgs["result"]["user"]>
 export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  role?: boolean | Prisma.RoleDefaultArgs<ExtArgs>
   seller?: boolean | Prisma.User$sellerArgs<ExtArgs>
+  role?: boolean | Prisma.RoleDefaultArgs<ExtArgs>
 }
 export type UserIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   role?: boolean | Prisma.RoleDefaultArgs<ExtArgs>
@@ -717,8 +717,8 @@ export type UserIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensi
 export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "User"
   objects: {
-    role: Prisma.$RolePayload<ExtArgs>
     seller: Prisma.$SellerPayload<ExtArgs> | null
+    role: Prisma.$RolePayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: bigint
@@ -1122,8 +1122,8 @@ readonly fields: UserFieldRefs;
  */
 export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  role<T extends Prisma.RoleDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.RoleDefaultArgs<ExtArgs>>): Prisma.Prisma__RoleClient<runtime.Types.Result.GetResult<Prisma.$RolePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   seller<T extends Prisma.User$sellerArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$sellerArgs<ExtArgs>>): Prisma.Prisma__SellerClient<runtime.Types.Result.GetResult<Prisma.$SellerPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  role<T extends Prisma.RoleDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.RoleDefaultArgs<ExtArgs>>): Prisma.Prisma__RoleClient<runtime.Types.Result.GetResult<Prisma.$RolePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.

@@ -15,18 +15,14 @@ model User {
   email        String  @unique
   passwordHash String
   roleId       Int
-  mobileNo     String
-  countryCode  String
-
-  role   Role    @relation(fields: [roleId], references: [id])
-  seller Seller?
+  seller       Seller?
+  role         Role    @relation(fields: [roleId], references: [id])
 }
 
 model Role {
-  id              Int    @id @default(autoincrement())
+  id              Int    @id
   roleDescription String @unique
-
-  user User[]
+  user            User[]
 }
 
 model Seller {
@@ -36,30 +32,27 @@ model Seller {
   address       String
   contactNumber Int
   countryCode   Int
-
-  user  User   @relation(fields: [userId], references: [id])
-  store Store?
+  user          User   @relation(fields: [userId], references: [id])
+  store         Store?
 }
 
 model Store {
-  id            String @id @default(uuid())
-  sellerId      String @unique
+  id            String         @id @default(uuid())
+  sellerId      String         @unique
   name          String
   address       String
   contactNumber Int
   rating        Int
-
-  seller       Seller         @relation(fields: [sellerId], references: [id])
-  storeProduct StoreProduct[]
+  seller        Seller         @relation(fields: [sellerId], references: [id])
+  storeProduct  StoreProduct[]
 }
 
 model Product {
-  id          String  @id @default(uuid())
-  productName String
-  price       Decimal
-  image       String
-  description String
-
+  id           String         @id @default(uuid())
+  productName  String
+  price        Decimal
+  image        String
+  description  String
   storeProduct StoreProduct[]
 }
 
@@ -68,9 +61,8 @@ model StoreProduct {
   productId  String
   storePrice Decimal
   units      Int
-
-  store   Store   @relation(fields: [storeId], references: [id])
-  product Product @relation(fields: [productId], references: [id])
+  product    Product @relation(fields: [productId], references: [id])
+  store      Store   @relation(fields: [storeId], references: [id])
 
   @@id([storeId, productId])
 }

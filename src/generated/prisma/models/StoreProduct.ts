@@ -212,8 +212,8 @@ export type StoreProductWhereInput = {
   productId?: Prisma.StringFilter<"StoreProduct"> | string
   storePrice?: Prisma.DecimalFilter<"StoreProduct"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   units?: Prisma.IntFilter<"StoreProduct"> | number
-  store?: Prisma.XOR<Prisma.StoreScalarRelationFilter, Prisma.StoreWhereInput>
   product?: Prisma.XOR<Prisma.ProductScalarRelationFilter, Prisma.ProductWhereInput>
+  store?: Prisma.XOR<Prisma.StoreScalarRelationFilter, Prisma.StoreWhereInput>
 }
 
 export type StoreProductOrderByWithRelationInput = {
@@ -221,8 +221,8 @@ export type StoreProductOrderByWithRelationInput = {
   productId?: Prisma.SortOrder
   storePrice?: Prisma.SortOrder
   units?: Prisma.SortOrder
-  store?: Prisma.StoreOrderByWithRelationInput
   product?: Prisma.ProductOrderByWithRelationInput
+  store?: Prisma.StoreOrderByWithRelationInput
 }
 
 export type StoreProductWhereUniqueInput = Prisma.AtLeast<{
@@ -234,8 +234,8 @@ export type StoreProductWhereUniqueInput = Prisma.AtLeast<{
   productId?: Prisma.StringFilter<"StoreProduct"> | string
   storePrice?: Prisma.DecimalFilter<"StoreProduct"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   units?: Prisma.IntFilter<"StoreProduct"> | number
-  store?: Prisma.XOR<Prisma.StoreScalarRelationFilter, Prisma.StoreWhereInput>
   product?: Prisma.XOR<Prisma.ProductScalarRelationFilter, Prisma.ProductWhereInput>
+  store?: Prisma.XOR<Prisma.StoreScalarRelationFilter, Prisma.StoreWhereInput>
 }, "storeId_productId">
 
 export type StoreProductOrderByWithAggregationInput = {
@@ -263,8 +263,8 @@ export type StoreProductScalarWhereWithAggregatesInput = {
 export type StoreProductCreateInput = {
   storePrice: runtime.Decimal | runtime.DecimalJsLike | number | string
   units: number
-  store: Prisma.StoreCreateNestedOneWithoutStoreProductInput
   product: Prisma.ProductCreateNestedOneWithoutStoreProductInput
+  store: Prisma.StoreCreateNestedOneWithoutStoreProductInput
 }
 
 export type StoreProductUncheckedCreateInput = {
@@ -277,8 +277,8 @@ export type StoreProductUncheckedCreateInput = {
 export type StoreProductUpdateInput = {
   storePrice?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   units?: Prisma.IntFieldUpdateOperationsInput | number
-  store?: Prisma.StoreUpdateOneRequiredWithoutStoreProductNestedInput
   product?: Prisma.ProductUpdateOneRequiredWithoutStoreProductNestedInput
+  store?: Prisma.StoreUpdateOneRequiredWithoutStoreProductNestedInput
 }
 
 export type StoreProductUncheckedUpdateInput = {
@@ -578,8 +578,8 @@ export type StoreProductSelect<ExtArgs extends runtime.Types.Extensions.Internal
   productId?: boolean
   storePrice?: boolean
   units?: boolean
-  store?: boolean | Prisma.StoreDefaultArgs<ExtArgs>
   product?: boolean | Prisma.ProductDefaultArgs<ExtArgs>
+  store?: boolean | Prisma.StoreDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["storeProduct"]>
 
 export type StoreProductSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -587,8 +587,8 @@ export type StoreProductSelectCreateManyAndReturn<ExtArgs extends runtime.Types.
   productId?: boolean
   storePrice?: boolean
   units?: boolean
-  store?: boolean | Prisma.StoreDefaultArgs<ExtArgs>
   product?: boolean | Prisma.ProductDefaultArgs<ExtArgs>
+  store?: boolean | Prisma.StoreDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["storeProduct"]>
 
 export type StoreProductSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -596,8 +596,8 @@ export type StoreProductSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.
   productId?: boolean
   storePrice?: boolean
   units?: boolean
-  store?: boolean | Prisma.StoreDefaultArgs<ExtArgs>
   product?: boolean | Prisma.ProductDefaultArgs<ExtArgs>
+  store?: boolean | Prisma.StoreDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["storeProduct"]>
 
 export type StoreProductSelectScalar = {
@@ -609,23 +609,23 @@ export type StoreProductSelectScalar = {
 
 export type StoreProductOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"storeId" | "productId" | "storePrice" | "units", ExtArgs["result"]["storeProduct"]>
 export type StoreProductInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  store?: boolean | Prisma.StoreDefaultArgs<ExtArgs>
   product?: boolean | Prisma.ProductDefaultArgs<ExtArgs>
+  store?: boolean | Prisma.StoreDefaultArgs<ExtArgs>
 }
 export type StoreProductIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  store?: boolean | Prisma.StoreDefaultArgs<ExtArgs>
   product?: boolean | Prisma.ProductDefaultArgs<ExtArgs>
+  store?: boolean | Prisma.StoreDefaultArgs<ExtArgs>
 }
 export type StoreProductIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  store?: boolean | Prisma.StoreDefaultArgs<ExtArgs>
   product?: boolean | Prisma.ProductDefaultArgs<ExtArgs>
+  store?: boolean | Prisma.StoreDefaultArgs<ExtArgs>
 }
 
 export type $StoreProductPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "StoreProduct"
   objects: {
-    store: Prisma.$StorePayload<ExtArgs>
     product: Prisma.$ProductPayload<ExtArgs>
+    store: Prisma.$StorePayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     storeId: string
@@ -1026,8 +1026,8 @@ readonly fields: StoreProductFieldRefs;
  */
 export interface Prisma__StoreProductClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  store<T extends Prisma.StoreDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.StoreDefaultArgs<ExtArgs>>): Prisma.Prisma__StoreClient<runtime.Types.Result.GetResult<Prisma.$StorePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   product<T extends Prisma.ProductDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ProductDefaultArgs<ExtArgs>>): Prisma.Prisma__ProductClient<runtime.Types.Result.GetResult<Prisma.$ProductPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  store<T extends Prisma.StoreDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.StoreDefaultArgs<ExtArgs>>): Prisma.Prisma__StoreClient<runtime.Types.Result.GetResult<Prisma.$StorePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
